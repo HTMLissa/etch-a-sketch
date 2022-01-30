@@ -1,6 +1,13 @@
+button {
+  padding: 5px 7px;
+  margin: 20px;
+  font-size: 17px;
+}
+
 .sketch-container {
   display: flex;
   flex-wrap: wrap;
+  width: 352px;
 }
 
 .pixel {

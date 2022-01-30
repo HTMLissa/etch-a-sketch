@@ -15,6 +15,15 @@ const pixels = document.querySelectorAll(".pixel");
 
 pixels.forEach((pixel) => {
   pixel.addEventListener("mouseover", () => {
-    pixel.style.backgroundColor = "blue";
+    pixel.style.backgroundColor = "red";
+  });
+});
+
+// Add a button to the top of the screen which will clear the current grid and send the user a popup asking for the number of squares per side for the new grid.
+
+const clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener("click", () => {
+  pixels.forEach((pixel) => {
+    pixel.style.backgroundColor = "white";
   });
 });
