@@ -9,3 +9,12 @@ for (let i = 0; i < 272; i++) {
   }
   sketchContainer.appendChild(square);
 }
+
+// Add hover effect to squares
+const pixels = document.querySelectorAll(".pixel");
+
+pixels.forEach((pixel) => {
+  pixel.addEventListener("mouseover", () => {
+    pixel.style.backgroundColor = "blue";
+  });
+});
