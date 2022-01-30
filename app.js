@@ -19,7 +19,7 @@ pixels.forEach((pixel) => {
   });
 });
 
-// Add a button to the top of the screen which will clear the current grid and send the user a popup asking for the number of squares per side for the new grid.
+// Add a button to the top of the screen which will clear the current grid
 
 const clearBtn = document.querySelector(".clear-btn");
 clearBtn.addEventListener("click", () => {
