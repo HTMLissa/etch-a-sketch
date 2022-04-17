@@ -1,23 +1,21 @@
 let sketchContainer = document.querySelector(".sketch-container");
 
-// Create a 16x16 grid of square divs
-// for (let i = 0; i < 272; i++) {
-//   const square = document.createElement("div");
-//   square.classList.add("pixel");
-//   if (i % 17 === 0) {
-//     square.classList.add("nth-child");
+// function to create canvas based on user input
+// function createCanvas(pixel) {
+//   for (let i = 0; i < pixel * pixel + pixel; i++) {
+//     const square = document.createElement("div");
+//     square.classList.add("pixel");
+//     if (i % (pixel + 1) === 0) {
+//       square.classList.add("nth-child");
+//     }
+//     sketchContainer.appendChild(square);
 //   }
-//   sketchContainer.appendChild(square);
 // }
 
-// function to create canvas based on user input
 function createCanvas(pixel) {
-  for (let i = 0; i < pixel * pixel + pixel; i++) {
+  for (let i = 0; i < pixel * pixel; i++) {
     const square = document.createElement("div");
     square.classList.add("pixel");
-    if (i % (pixel + 1) === 0) {
-      square.classList.add("nth-child");
-    }
     sketchContainer.appendChild(square);
   }
 }
@@ -58,9 +56,17 @@ const resizeBtn = document.querySelector(".resize-grid-btn");
 let newGridSize;
 resizeBtn.addEventListener("click", () => {
   newGridSize = parseInt(prompt("Enter a number between 1 - 100 px"));
-  if (newGridSize > 100) {
-    alert("Try a smaller canvas ;)");
+  if (newGridSize > 100 || newGridSize < 1) {
+    alert("Try a number between 1 and 100 ;)");
   } else {
+    sketchContainer.style.setProperty(
+      "grid-template-columns",
+      `repeat(${newGridSize}, 2fr)`
+    );
+    sketchContainer.style.setProperty(
+      "grid-template-rows",
+      `repeat(${newGridSize}, 2fr)`
+    );
     removeCanvas();
     createCanvas(newGridSize);
     pixels = document.querySelectorAll(".pixel");

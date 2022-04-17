@@ -1,3 +1,6 @@
+body {
+}
+
 button {
   padding: 5px 7px;
   margin: 20px;
@@ -5,8 +8,9 @@ button {
 }
 
 .sketch-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-grid;
+  grid-template-columns: repeat(16, 2fr);
+  grid-template-rows: repeat(16, 2fr);
 }
 
 .pixel {
