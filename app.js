@@ -1,17 +1,6 @@
 let sketchContainer = document.querySelector(".sketch-container");
 
-// function to create canvas based on user input
-// function createCanvas(pixel) {
-//   for (let i = 0; i < pixel * pixel + pixel; i++) {
-//     const square = document.createElement("div");
-//     square.classList.add("pixel");
-//     if (i % (pixel + 1) === 0) {
-//       square.classList.add("nth-child");
-//     }
-//     sketchContainer.appendChild(square);
-//   }
-// }
-
+// function to create a canvas of the size pixel
 function createCanvas(pixel) {
   for (let i = 0; i < pixel * pixel; i++) {
     const square = document.createElement("div");
@@ -61,11 +50,11 @@ resizeBtn.addEventListener("click", () => {
   } else {
     sketchContainer.style.setProperty(
       "grid-template-columns",
-      `repeat(${newGridSize}, 2fr)`
+      `repeat(${newGridSize}, 1fr)`
     );
     sketchContainer.style.setProperty(
       "grid-template-rows",
-      `repeat(${newGridSize}, 2fr)`
+      `repeat(${newGridSize}, 1fr)`
     );
     removeCanvas();
     createCanvas(newGridSize);
