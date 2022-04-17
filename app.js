@@ -22,6 +22,11 @@ function createCanvas(pixel) {
   }
 }
 
+// Create a 16x16 canvas
+createCanvas(16);
+let pixels = document.querySelectorAll(".pixel");
+addHoverEffect(pixels);
+
 // function to remove canvas
 function removeCanvas() {
   while (sketchContainer.firstChild) {
@@ -29,20 +34,18 @@ function removeCanvas() {
   }
 }
 
-// Create a 16x16 grid of square divs
-createCanvas(16);
-
 // Add hover effect to squares
-const pixels = document.querySelectorAll(".pixel");
-
-pixels.forEach((pixel) => {
-  pixel.addEventListener("mouseover", () => {
-    pixel.style.backgroundColor = "red";
+function addHoverEffect(pixelArr) {
+  pixelArr.forEach((pixel) => {
+    pixel.addEventListener("mouseover", () => {
+      pixel.style.backgroundColor = "red";
+    });
   });
-});
+}
 
 // Add a button to the top of the screen which will clear the current grid
 const clearBtn = document.querySelector(".clear-btn");
+
 clearBtn.addEventListener("click", () => {
   pixels.forEach((pixel) => {
     pixel.style.backgroundColor = "white";
@@ -60,5 +63,7 @@ resizeBtn.addEventListener("click", () => {
   } else {
     removeCanvas();
     createCanvas(newGridSize);
+    pixels = document.querySelectorAll(".pixel");
+    addHoverEffect(pixels);
   }
 });
