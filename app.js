@@ -37,6 +37,7 @@ clearBtn.addEventListener("click", () => {
   pixels.forEach((pixel) => {
     pixel.style.backgroundColor = "white";
   });
+  addHoverEffect(pixels);
 });
 
 // Add a button to the top of the screen which will clear the current grid and send the user a popup asking for the number of squares per side for the new grid.
@@ -61,4 +62,24 @@ resizeBtn.addEventListener("click", () => {
     pixels = document.querySelectorAll(".pixel");
     addHoverEffect(pixels);
   }
+});
+
+// Add a function to generate a random color
+function randomColorGenerator() {
+  let rgbColor1 = Math.floor(Math.random() * 256);
+  let rgbColor2 = Math.floor(Math.random() * 256);
+  let rgbColor3 = Math.floor(Math.random() * 256);
+  return `rgb(${rgbColor1},${rgbColor2},${rgbColor3})`;
+}
+
+// Generate random color when "Rancom Color" buttin is being clicked
+let randomColorBtn = document.querySelector(".random-color-btn");
+
+randomColorBtn.addEventListener("click", () => {
+  pixels.forEach((pixel) => {
+    pixel.addEventListener("mouseover", () => {
+      let randomColor = randomColorGenerator();
+      pixel.style.backgroundColor = randomColor;
+    });
+  });
 });
