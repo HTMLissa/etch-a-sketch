@@ -72,7 +72,7 @@ function randomColorGenerator() {
   return `rgb(${rgbColor1},${rgbColor2},${rgbColor3})`;
 }
 
-// Generate random color when "Rancom Color" buttin is being clicked
+// Generate random color when "Random Color" button is being clicked
 let randomColorBtn = document.querySelector(".random-color-btn");
 
 randomColorBtn.addEventListener("click", () => {
